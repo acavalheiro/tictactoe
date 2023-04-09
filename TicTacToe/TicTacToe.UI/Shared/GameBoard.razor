@@ -1,0 +1,56 @@
+﻿@using System.Diagnostics
+<div id="game-screen" class="center hidden">
+    <!-- Every cell has an id "cell" followed by cell row and cell column -->
+    <table class="center">
+        <tr>
+            <td>
+                <button type="button" class="cell" id="cell00" @onclick="() => PlayerCall(0,0)">@values[0,0]</button>
+            </td>
+            <td>
+                <button type="button" class="cell" id="cell01" @onclick="() => PlayerCall(0,1)"></button>
+            </td>
+            <td>
+                <button type="button" class="cell" id="cell02" @onclick="() => PlayerCall(0,2)"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="cell" id="cell10" @onclick="() => PlayerCall(1,0)"></button>
+            </td>
+            <td>
+                <button type="button" class="cell" id="cell11" @onclick="() => PlayerCall(1,1)"></button>
+            </td>
+            <td>
+                <button type="button" class="cell" id="cell12" @onclick="() => PlayerCall(1,2)"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="cell" id="cell20" @onclick="() => PlayerCall(2,0)"></button>
+            </td>
+            <td>
+                <button type="button" class="cell" id="cell21" @onclick="() => PlayerCall(2,1)"></button>
+            </td>
+            <td>
+                <button type="button" class="cell" id="cell22" @onclick="() => PlayerCall(2,2)"></button>
+            </td>
+        </tr>
+    </table>
+    <button type="button" id="restart">Restart</button>
+</div>
+
+
+@code {
+
+    string[,] values = new string[3, 3];
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public string? Title { get; set; }
+
+    private void PlayerCall(int x, int y)
+    {
+        Debug.WriteLine($"Row {x} Column {y}");
+        values[x, y] = $"{x}-{y}";
+    }
+}
+

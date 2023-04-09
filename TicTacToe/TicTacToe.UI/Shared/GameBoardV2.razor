@@ -1,0 +1,40 @@
+﻿@using System.Diagnostics
+<div id="game-screen" class="center hidden">
+    <!-- Every cell has an id "cell" followed by cell row and cell column -->
+    <table class="center">
+        @for (int x = 0; x < 3; x++)
+            {
+            var row = x;
+            <tr>
+                @for (int y = 0; y  < 3; y ++)
+                {
+                    var column = y;
+                    <td>
+                        <button type="button" class="cell" @onclick="() => PlayerCall(row,column)">@values[row, column]</button>
+                    </td>
+                }
+            </tr>
+
+        }
+    </table>
+    <button type="button" id="restart">Restart</button>
+</div>
+
+
+@code {
+
+    string[,] values = new string[3, 3];
+    bool player;
+
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public string? Title { get; set; }
+
+    private void PlayerCall(int x, int y)
+    {
+        Debug.WriteLine($"Row {x} Column {y}");
+        values[x, y] = player ? "X" : "0";
+        player = !player;
+    }
+}
+
