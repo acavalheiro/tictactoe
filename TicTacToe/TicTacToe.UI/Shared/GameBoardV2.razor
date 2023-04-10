@@ -1,37 +1,31 @@
 ﻿@using System.Diagnostics
 @using TicTacToe.UI.Engine
 
+<div class="col-12">
+    <h2>@Engine?.GameStatus </h2>
+</div>
 
 <div class="container" id="main">
-
-    @for (int x = 0; x < 3; x++)
+    
+    @for (var x = 0; x < 3; x++)
     {
         var row = x;
 
-        @for (int y = 0; y < 3; y++)
+        @for (var y = 0; y < 3; y++)
         {
             var column = y;
             <div class="box @(Engine.IsLocked(x,y) ? "cannotuse" :string.Empty)" @onclick="() => Engine.PlayerCall(row,column)">
-                @Engine.values[row, column]
+                @Engine.Board[row, column]
             </div>
-
         }
-
-
     }
-    <button class="btn btn-dark" id="replay" @onclick="() => Engine.Restart()">Play Again</button>
 
 </div>
 
 
 @code {
 
-    //string[,] values = new string[3, 3];
-    //bool player;
-
-    // Demonstrates how a parent component can supply parameters
-    [Parameter]
-    public string? Title { get; set; }
+    
     [Parameter]
     public GameEngine? Engine { get; set; }
 

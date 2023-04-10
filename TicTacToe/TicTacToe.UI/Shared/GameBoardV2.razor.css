@@ -1,7 +1,7 @@
 ﻿.container {
-    width: 330px;
+    width: 630px;
     overflow: hidden;
-    margin: 50px auto 0 auto;
+    margin: 100px auto 0 auto;
 }
 
     .container span {
@@ -9,18 +9,18 @@
         text-align: center;
         font-family: sans-serif;
         font-size: 40px;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
     }
 
     .container .box {
         float: left;
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
         border: 1px solid #000;
         transition: all .25s ease-in-out;
-        font-size: 85px;
+        font-size: 150px;
         text-align: center;
-        line-height: 100px;
+        /*line-height: 100px;*/
         cursor: pointer;
     }
 
