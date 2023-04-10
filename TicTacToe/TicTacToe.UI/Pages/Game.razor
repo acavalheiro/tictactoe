@@ -1,7 +1,44 @@
 ﻿@page "/Game"
+@using TicTacToe.UI.Engine
+
+@inject GameEngine GameEngine
 
 <PageTitle>Tic Tac Toe</PageTitle>
+<div class="container">
+
+<div class="row">
+    <div class="col align-self-center">
+        <h1>Tic Tac Toe <span class="badge bg-secondary">New</span></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Player 1" aria-label="Player 1" @bind="PlayerOne">
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Player 2" aria-label="Player 2" @bind="PlayerTwo">
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-dark" id="replay" @onclick="(async) => StartGame()">Start Game</button>
+    </div>
+</div>
+<div class="row" style="@visibility">
+    <GameBoardV2 Engine="GameEngine"></GameBoardV2>
+</div>
+</div>
+@code {
+
+    string visibility = "display:none;";
+
+    string? PlayerOne { get; set; }
+    string? PlayerTwo { get; set; }
 
 
-<GameBoardV2></GameBoardV2>
+    private async Task StartGame()
+    {
+        visibility = string.Empty;
+        GameEngine.SetupPlayers(PlayerOne, PlayerTwo);
+    }
 
+}
