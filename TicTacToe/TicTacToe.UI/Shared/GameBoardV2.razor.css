@@ -1,4 +1,4 @@
-﻿.container {
+﻿/*.container {
     width: 630px;
     overflow: hidden;
     margin: 100px auto 0 auto;
@@ -19,16 +19,36 @@
         border: 1px solid #000;
         transition: all .25s ease-in-out;
         font-size: 150px;
-        text-align: center;
-        /*line-height: 100px;*/
-        cursor: pointer;
+        text-align: center;*/
+/*line-height: 100px;*/
+/*cursor: pointer;
     }
 
-        .container .cannotuse {
-            cursor: not-allowed;
-        }
+    .container .cannotuse {
+        cursor: not-allowed;
+    }
 
-        .container .box:hover {
-            background: rgb(174, 244, 255);
-            color: rgb(108, 108, 108);
-        }
+    .container .box:hover {
+        background: rgb(174, 244, 255);
+        color: rgb(108, 108, 108);
+    }*/
+
+
+ .box {
+    border: 1px solid #000;
+    transition: all .25s ease-in-out;
+    font-size: 150px;
+    text-align: center;
+    height: 200px;
+    cursor: pointer;
+}
+
+.container .cannotuse {
+    cursor: not-allowed;
+}
+
+.container .box:hover {
+    background: rgb(174, 244, 255);
+    color: rgb(108, 108, 108);
+}
+

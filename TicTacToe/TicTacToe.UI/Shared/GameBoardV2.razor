@@ -10,15 +10,18 @@
     @for (var x = 0; x < 3; x++)
     {
         var row = x;
+        <div class="row">
 
-        @for (var y = 0; y < 3; y++)
-        {
-            var column = y;
-            <div class="box @(Engine.IsLocked(x,y) ? "cannotuse" :string.Empty)" @onclick="() => Engine.PlayerCall(row,column)">
-                @Engine.Board[row, column]
-            </div>
+            @for (var y = 0; y < 3; y++)
+            {
+                var column = y;
+                <div class="col-4 box @(Engine.IsLocked(x, y) ? "cannotuse" : string.Empty)" @onclick="() => Engine.PlayerCall(row, column)">
+                    @Engine.Board[row, column]
+                </div>
+            }
+
+        </div>
         }
-    }
 
 </div>
 
