@@ -33,21 +33,4 @@
     <GameBoardV2 Engine="GameEngine"></GameBoardV2>
 </div>
 
-@code {
 
-    string visibility = "display:none;";
-    string label = "Start Game";
-
-    string? PlayerOne { get; set; }
-    string? PlayerTwo { get; set; }
-
-
-    private async Task StartGame()
-    {
-        visibility = string.Empty;
-        GameEngine.SetupPlayers(PlayerOne, PlayerTwo);
-        label = "Restart";
-        await Task.CompletedTask;
-    }
-
-}
